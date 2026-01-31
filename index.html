@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morgan Garvin | Program Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #faf8f5;
+            --peach: #ffe8d6;
+            --terracotta: #cb997e;
+            --sage: #a5a58d;
+            --olive: #6b705c;
+            --charcoal: #3d405b;
+            --coral: #e07a5f;
+            --soft-pink: #f2cc8f;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Organic blob shapes */
+        .blob {
+            position: absolute;
+            border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
+            opacity: 0.6;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--peach) 0%, var(--soft-pink) 100%);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #d4e4d1 0%, var(--sage) 100%);
+            bottom: 10%;
+            left: -80px;
+            animation-delay: -5s;
+            border-radius: 60% 40% 50% 60% / 40% 50% 60% 50%;
+        }
+
+        .blob-3 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--peach) 100%);
+            top: 40%;
+            right: 5%;
+            animation-delay: -10s;
+            border-radius: 40% 60% 50% 50% / 60% 40% 60% 40%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -15px) rotate(5deg); }
+            50% { transform: translate(-5px, 10px) rotate(-3deg); }
+            75% { transform: translate(15px, 5px) rotate(3deg); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .wave {
+            font-size: 3rem;
+            display: inline-block;
+            animation: wave 2.5s ease-in-out infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50%, 100% { transform: rotate(0deg); }
+        }
+
+        .intro-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.2rem;
+            color: var(--olive);
+            margin: 1.5rem 0 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 400;
+            color: var(--charcoal);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--coral);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--olive);
+            max-width: 580px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: -4px;
+            right: -4px;
+            height: 8px;
+            background: var(--soft-pink);
+            opacity: 0.5;
+            z-index: -1;
+            border-radius: 4px;
+            transform: rotate(-1deg);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.75rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+
+        .btn-primary:hover {
+            background: var(--olive);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--charcoal);
+            border: 2px solid var(--charcoal);
+        }
+
+        .btn-secondary:hover {
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+
+        /* Decorative elements */
+        .doodle {
+            position: absolute;
+            opacity: 0.7;
+        }
+
+        .doodle-stars {
+            top: 15%;
+            left: 10%;
+            width: 60px;
+        }
+
+        .doodle-squiggle {
+            bottom: 20%;
+            right: 10%;
+            width: 80px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--olive);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p:first-of-type {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+        }
+
+        .fun-facts {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .fun-facts h3 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .fact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .fact-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .fact-text {
+            color: var(--olive);
+            font-size: 1rem;
+        }
+
+        .fact-text strong {
+            color: var(--charcoal);
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .philosophy-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 20px;
+            border-left: 4px solid var(--coral);
+        }
+
+        .philosophy-card h3 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 0.75rem;
+        }
+
+        .philosophy-card p {
+            color: var(--olive);
+            font-size: 1rem;
+        }
+
+        /* What I Do */
+        .work-section {
+            padding: 6rem 2rem 8rem;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .work-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-illustration {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1.5rem;
+        }
+
+        .work-card h3 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 0.75rem;
+        }
+
+        .work-card p {
+            color: var(--olive);
+            font-size: 0.95rem;
+        }
+
+        /* Logo Wall */
+        .logo-wall {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .logo-wall .container {
+            text-align: center;
+        }
+
+        .logo-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-item:hover {
+            opacity: 1;
+        }
+
+        .logo-icon {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon img {
+            height: 100%;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .logo-item:hover .logo-icon img {
+            filter: grayscale(0%);
+        }
+
+        .logo-icon svg {
+            height: 100%;
+            width: auto;
+        }
+
+        .logo-name {
+            font-size: 0.8rem;
+            color: var(--olive);
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-grid {
+                gap: 2rem;
+            }
+        }
+
+        /* Contact */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--olive);
+            opacity: 0.1;
+            border-radius: 50% 60% 40% 50% / 60% 40% 60% 40%;
+            top: -200px;
+            right: -100px;
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .contact .section-label {
+            color: var(--soft-pink);
+        }
+
+        .contact .section-title {
+            color: var(--cream);
+            margin-bottom: 1rem;
+        }
+
+        .contact-intro {
+            color: var(--sage);
+            font-size: 1.15rem;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--cream);
+            padding: 1rem 1.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background: var(--charcoal);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--sage);
+            font-size: 0.9rem;
+        }
+
+        footer span {
+            color: var(--coral);
+        }
+    </style>
+</head>
+<body>
+    <!-- Organic blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Decorative doodles -->
+    <svg class="doodle doodle-stars" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10L52 48L90 50L52 52L50 90L48 52L10 50L48 48L50 10Z" fill="#e07a5f" opacity="0.6"/>
+        <path d="M25 25L26 34L35 35L26 36L25 45L24 36L15 35L24 34L25 25Z" fill="#cb997e" opacity="0.5"/>
+        <path d="M75 65L76 72L83 73L76 74L75 81L74 74L67 73L74 72L75 65Z" fill="#f2cc8f" opacity="0.5"/>
+    </svg>
+
+    <svg class="doodle doodle-squiggle" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 30C15 10 25 50 35 30C45 10 55 50 65 30C75 10 85 50 95 30" stroke="#cb997e" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.5"/>
+    </svg>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="wave">👋</span>
+            <p class="intro-text">Hey there! I'm</p>
+            <h1>Morgan Garvin, helping people <em>thrive</em> in the age of AI</h1>
+            <p class="tagline">
+                Program Manager at <span class="highlight">Microsoft</span> · L&D nerd turned AI adoption lead · Believer that technology only matters when it actually helps people
+            </p>
+            <div class="cta-group">
+                <a href="https://www.linkedin.com/in/morgangarvin/" target="_blank" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    Let's connect
+                </a>
+                <a href="#about" class="btn btn-secondary">Get to know me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="section-label">A bit about me</span>
+                    <h2 class="section-title">I put people at the center of technology.</h2>
+                    <p>Over 10+ years, I've helped people learn and grow across the trades, research universities, and now tech sales enablement. That journey taught me one thing: the best learning meets people exactly where they are.</p>
+                    <p>At Microsoft, I design enablement programs for 65,000+ enterprise sellers, from onboarding to product launches. The biggest lesson? It was never about the technology. It was about meeting people where they are, understanding their workflows, and earning trust by answering the question everyone's really asking: <em>"How does this actually help me?"</em></p>
+                    <p>These days, I'm designing learning experiences for 5K+ person technical events, building agentic helpers and hands-on labs, and constantly exploring how to make the complex feel simple.</p>
+                </div>
+                <div class="fun-facts">
+                    <h3>Quick facts ✨</h3>
+                    <div class="fact-item">
+                        <span class="fact-icon">🏆</span>
+                        <p class="fact-text"><strong>Recognition:</strong> Copilot Champion, AI Hackathon Winner</p>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-icon">🔥</span>
+                        <p class="fact-text"><strong>Hot take:</strong> More content isn't the answer. Behavior change is.</p>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-icon">🏔️</span>
+                        <p class="fact-text"><strong>Off the clock:</strong> Snowboarding, golf, and Disney park optimization</p>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-icon">🌱</span>
+                        <p class="fact-text"><strong>Currently exploring:</strong> Agentic AI for learning at scale</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="philosophy">
+        <div class="container">
+            <span class="section-label">What I've learned</span>
+            <h2 class="section-title">A few things I believe about AI adoption</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h3>Models don't matter. Implementation does.</h3>
+                    <p>The latest LLM means nothing if it's not woven thoughtfully into the tools and workflows people already use. Integration is everything.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3>Mindset beats features</h3>
+                    <p>How people <em>think</em> about AI matters more than what AI can do. Adoption starts with belief, not a feature list.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3>Meet people where they are</h3>
+                    <p>Most people don't know where to start with AI. The best programs don't just inform. They guide, step by step, in context.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3>Earn trust by answering "so what?"</h3>
+                    <p>Every new tool has to earn its place. That means proving usefulness in someone's real day, not a demo environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do -->
+    <section class="work-section">
+        <div class="container">
+            <span class="section-label">What I do</span>
+            <h2 class="section-title">Bridging the gap between technology and people</h2>
+            <div class="work-grid">
+                <div class="work-card">
+                    <svg class="work-illustration" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="32" r="28" fill="#ffe8d6"/>
+                        <path d="M20 38L28 30L34 36L44 26" stroke="#3d405b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="44" cy="26" r="3" fill="#e07a5f"/>
+                    </svg>
+                    <h3>AI Adoption at Scale</h3>
+                    <p>Designing programs that help thousands of people not just use AI, but actually integrate it into how they work every day.</p>
+                </div>
+                <div class="work-card">
+                    <svg class="work-illustration" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="32" r="28" fill="#d4e4d1"/>
+                        <rect x="20" y="24" width="24" height="18" rx="2" stroke="#3d405b" stroke-width="2.5"/>
+                        <path d="M20 30H44M28 30V42M36 30V42" stroke="#3d405b" stroke-width="2"/>
+                        <circle cx="32" cy="20" r="3" fill="#e07a5f"/>
+                    </svg>
+                    <h3>Modern Learning Design</h3>
+                    <p>Building hands-on labs, skills challenges, and agentic helpers that make learning active, not passive.</p>
+                </div>
+                <div class="work-card">
+                    <svg class="work-illustration" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="32" r="28" fill="#f2cc8f" opacity="0.5"/>
+                        <circle cx="24" cy="26" r="5" stroke="#3d405b" stroke-width="2.5"/>
+                        <circle cx="40" cy="26" r="5" stroke="#3d405b" stroke-width="2.5"/>
+                        <path d="M24 31V36C24 38 26 40 32 40C38 40 40 38 40 36V31" stroke="#3d405b" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M29 26H35" stroke="#e07a5f" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    <h3>Connecting Builders & Sellers</h3>
+                    <p>Creating spaces where product engineers and field teams learn from each other, bridging the gap between what's built and what's sold.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Wall -->
+    <section class="logo-wall">
+        <div class="container">
+            <span class="section-label">Where I've helped learners</span>
+            <h2 class="section-title">A journey across industries</h2>
+            <div class="logo-grid">
+                <!-- SAIT -->
+                <div class="logo-item">
+                    <div class="logo-icon">
+                        <img src="https://logo.clearbit.com/sait.ca" alt="SAIT logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span style="display:none;font-weight:700;font-size:1.5rem;color:#003D6B;">SAIT</span>
+                    </div>
+                    <span class="logo-name">Polytechnic Trade School</span>
+                </div>
+                <!-- UBC -->
+                <div class="logo-item">
+                    <div class="logo-icon">
+                        <img src="https://logo.clearbit.com/ubc.ca" alt="UBC logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span style="display:none;font-weight:700;font-size:1.5rem;color:#002145;">UBC</span>
+                    </div>
+                    <span class="logo-name">Research University</span>
+                </div>
+                <!-- T-Mobile -->
+                <div class="logo-item">
+                    <div class="logo-icon">
+                        <img src="https://logo.clearbit.com/t-mobile.com" alt="T-Mobile logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span style="display:none;font-weight:700;font-size:1.5rem;color:#E20074;">T-Mobile</span>
+                    </div>
+                    <span class="logo-name">Sr. Instructional Designer</span>
+                </div>
+                <!-- Microsoft -->
+                <div class="logo-item">
+                    <div class="logo-icon">
+                        <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span style="display:none;font-weight:700;font-size:1.5rem;color:#00A4EF;">Microsoft</span>
+                    </div>
+                    <span class="logo-name">Worldwide Learning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <span class="section-label">Say hello</span>
+            <h2 class="section-title">Let's build something together</h2>
+            <p class="contact-intro">
+                Whether you're figuring out AI adoption, rethinking learning, or just want to swap Disney park tips, I'd love to hear from you.
+            </p>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/morgangarvin/" target="_blank" class="contact-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="mailto:hey.morgan@outlook.com" class="contact-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Email me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with <span>♥</span> by Morgan Garvin · 2026</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
